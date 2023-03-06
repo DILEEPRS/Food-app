@@ -1,0 +1,36 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  outline: black;
+}
+
+.nav {
+  background-color: rgb(196, 201, 199);
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav div ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 30px;
+}
+
+.card {
+  width: 200px;
+  border: 1px solid black;
+  margin: 20px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.cardbody {
+  display: flex;
+  flex-wrap: wrap;
+}
