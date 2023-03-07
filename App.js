@@ -720,7 +720,7 @@ const Body = () => (
 
 const AppLayout = () => (
   <>
-    <Header />
+    <Header > </Header>
     <Body />
   </>
 );
