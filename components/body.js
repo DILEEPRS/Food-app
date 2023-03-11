@@ -1,17 +1,22 @@
 import { ResturantList } from "./config";
 import RestrauntCard from "./Restocard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function filterData(search, resturants) {
   const filterData = resturants.filter((resturants) =>
-    resturants.data.data.name.includes(search)
+    resturants.data.data.name.toLowerCase().includes(search.toLowerCase())
   );
   return filterData;
 }
 
 const Body = () => {
+  const [allresturants, setallresturants] = useState(ResturantList);
   const [resturants, setresturants] = useState(ResturantList);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    console.log("Search");
+  }, [resturants]);
 
   return (
     <>
@@ -28,7 +33,7 @@ const Body = () => {
         />
         <button
           onClick={() => {
-            const data = filterData(search, resturants);
+            const data = filterData(search, allresturants);
             setresturants(data);
           }}
         >
@@ -37,7 +42,12 @@ const Body = () => {
       </div>
       <div className="cardbody">
         {resturants.map((resturants) => {
-          return <RestrauntCard {...resturants.data.data} />;
+          return (
+            <RestrauntCard
+              {...resturants.data.data}
+              key={resturants.data.data.id}
+            />
+          );
         })}
       </div>
     </>
