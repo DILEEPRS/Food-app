@@ -1,3 +1,5 @@
+import { CDN_LINK } from "./config";
+
 const RestrauntCard = ({
   name,
   avgRating,
@@ -6,16 +8,11 @@ const RestrauntCard = ({
 }) => {
   return (
     <div className="card">
-      <img
-        src={
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-          cloudinaryImageId
-        }
-      />
+      <img src={CDN_LINK + cloudinaryImageId} />
 
-      <h2>{name}</h2>
-      <h2>{avgRating}</h2>
-      <h3>{costForTwoString}</h3>
+      <h2 style={{ textDecoration: "none" }}>{name}</h2>
+      <h2 className="link">{avgRating}</h2>
+      <h3 className="link">{costForTwoString}</h3>
     </div>
   );
 };

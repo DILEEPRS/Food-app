@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
+
 const Header = () => (
   <div className="nav">
     <div>
@@ -11,8 +14,13 @@ const Header = () => (
 
     <div>
       <ul>
-        <li>Home</li>
-        <li>Sign up</li>
+        <li>
+          <Link to="/"> Home</Link>
+        </li>
+        <li>
+          <Link to="/about"> About us</Link>
+        </li>
+
         <li>Get started</li>
         <li>Contact us </li>
         <li>
@@ -20,7 +28,7 @@ const Header = () => (
         </li>
       </ul>
     </div>
-
+    <div>{useOnline() ? "online" : "offline"}</div>
     <button>click me</button>
   </div>
 );
